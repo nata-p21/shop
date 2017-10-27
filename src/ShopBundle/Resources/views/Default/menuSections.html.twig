@@ -1,0 +1,5 @@
+<div class="dropdown-menu" aria-labelledby="dropdown01">
+    {% for section in sections %}
+    <a class="dropdown-item" href="{{ path('section',{'code' : section.code}) }}">{{ section.name }}</a>
+    {% endfor %}
+</div>

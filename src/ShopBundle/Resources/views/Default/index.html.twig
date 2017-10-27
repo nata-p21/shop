@@ -1,0 +1,18 @@
+{% extends 'ShopBundle::base.html.twig' %}
+
+{% block content %}
+    <section>
+        <h2>Каталог</h2>
+        <div class="container">
+            <div class="row">
+
+                {% for section in sections %}
+                    <div class="col-md-3">
+                        <a href="{{ path('section',{'code' : section.code}) }}"><img src="{{ section.picture }}"></a>
+                        <p><a href="{{ path('section',{'code' : section.code}) }}">{{ section.name }}</a></p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

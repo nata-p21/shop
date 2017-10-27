@@ -1,0 +1,43 @@
+{% extends '@Shop/base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Дата создания</th>
+                            <th>Имя</th>
+                            <th>Телефон</th>
+                            <th>Email</th>
+                            <th>Сообщение</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for feed in feedback%}
+                            <tr>
+                                <td>{{ feed.id }}</td>
+                                <td>{{ feed.date|date('d.m.Y h:i') }}</td>
+                                <td>{{ feed.name }}</td>
+                                <td>{{ feed.phone }}</td>
+                                <td>{{ feed.email }}</td>
+                                <td>{{ feed.message }}</td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends '@Shop/base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <a href="{{ path('productAdd') }}" class="btn btn-primary">Создать <i class="fa fa-fw fa-plus-square"></i></a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Категория</th>
+                            <th>Url</th>
+                            <th>Изображение</th>
+                            <th>Цена</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>{{ product.id }}</td>
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.section.name }}</td>
+                                <td>{{ product.code }}</td>
+                                <td><img src="{{ product.picture }}" width="100"></td>
+                                <td>{{ product.price }}</td>
+                                <td>
+                                    <a href="{{ path('productEdit', {'id' : product.id} ) }}" class="btn btn-info">Редактировать <i class="fa fa-fw fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+{% endblock %}
